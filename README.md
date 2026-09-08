@@ -1,13 +1,6 @@
-## 安装
+# 简介
 
-```shell
-npm i
-```
-
-## 启动
-
-```shell
-npm run dev
-```
-
-修改 `/src/views` 中的示例源码即可在浏览器中实时查看效果。
+element-plus二次封装
+表单
+表格
+详情页
