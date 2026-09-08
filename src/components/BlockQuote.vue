@@ -7,7 +7,7 @@
   <el-divider v-if="showLine"></el-divider>
 </template>
 <script setup>
-const props = defineProps({
+defineProps({
   showLine: {
     type: Boolean,
     default: false
