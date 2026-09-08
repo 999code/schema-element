@@ -5,6 +5,7 @@
       <router-link to="/example2">Example2</router-link>
       <router-link to="/example3">Example3</router-link>
       <router-link to="/example4">Example4</router-link>
+      <router-link to="/example5">Example5</router-link>
       <router-link to="/example6">Example6</router-link>
     </div>
 
