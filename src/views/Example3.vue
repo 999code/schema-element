@@ -3,14 +3,25 @@
     <h4>多列布局col、span、gutter</h4>
     <sc-form ref="formRef" :schema="schema" />
     <p>model: {{ JSON.stringify(model) }}</p>
+    <search-form  
+      :schema="querySchema"
+      @search="loadEvents"
+      @reset="resetQuery"
+      ></search-form>
   </div>
 </template>
 
 <script setup>
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue';
 import { computed, ref } from 'vue';
+import SearchForm from '@/components/SearchForm.vue';
 const formRef = ref(null);
-
+const loadEvents = () => {
+  console.log('loadEvents', model.value);
+};
+const resetQuery = () => {
+  console.log('resetQuery', model.value);
+};
 defineOptions({
   name: 'Example3',
 });
@@ -138,6 +149,15 @@ const schema = computed(() => ({
           }
         ]
       }));
+
+const querySchema = computed(() => ({
+  colSpan: 6,
+  labelPosition: 'top',
+  gutter: 18,
+  model: model.value,
+   formItems
+}))
+
 
 </script>
 <style scoped>
