@@ -1,44 +1,69 @@
 <template>
-  <div id="app">
-    <div class="nav">
-      <router-link to="/example1">Example1</router-link>
-      <router-link to="/example2">Example2</router-link>
-      <router-link to="/example3">Example3</router-link>
-      <router-link to="/example4">Example4</router-link>
-      <router-link to="/example5">Example5</router-link>
-      <router-link to="/example6">Example6</router-link>
-    </div>
+  <div class="example-layout">
+    <aside class="example-sidebar">
+      <ExampleMenu :items="exampleRoutes" />
+    </aside>
 
-    <router-view></router-view>
+    <main class="example-content">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
 <script setup>
+import ExampleMenu from './components/ExampleMenu.vue';
+import { exampleRoutes } from './router';
+
 defineOptions({
   name: 'App',
 });
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  padding: 60px 0;
   background-color: #f8f8f8;
 }
-.nav{
-  padding-bottom: 50px;
+
+.example-layout {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  min-height: 100vh;
 }
-.nav a{
-  margin: 0 20px;
-  text-decoration: none;
+
+.example-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-right: 1px solid var(--el-border-color-light);
+  background: var(--el-bg-color);
 }
-.router-link-exact-active{
-  color: #fff;
-  background-color: #409EFF;
+
+.example-content {
+  min-width: 0;
+  padding: 32px;
+  overflow-x: auto;
 }
+
+@media (max-width: 768px) {
+  .example-layout {
+    grid-template-columns: 144px minmax(0, 1fr);
+  }
+
+  .example-content {
+    padding: 24px 16px;
+  }
+}
+
 h4 {
   border-bottom: 1px solid #dcdfe6;
   padding: 10px 0 0 20px;

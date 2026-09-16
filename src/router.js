@@ -1,21 +1,20 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-import Example1 from './views/Example1.vue';
-import Example2 from './views/Example2.vue';
-import Example3 from './views/Example3.vue';
-import Example4 from './views/Example4.vue';
-import Example5 from './views/Example5.vue';
-import Example6 from './views/Example6.vue';
+import { examplePages } from './examples';
+import Examples from './views/Examples.vue';
+
+export const exampleRoutes = [
+    { path: '/examples', component: Examples, meta: { title: '示例页面' } },
+];
 
 export default createRouter({
     history: createWebHashHistory(),
     routes: [
-        { path: '/', component: Example1 },
-        { path: '/example1', component: Example1 },
-        { path: '/example2', component: Example2 },
-        { path: '/example3', component: Example3 },
-        { path: '/example4', component: Example4 },
-        { path: '/example5', component: Example5 },
-        { path: '/example6', component: Example6 },
+        { path: '/', redirect: '/examples' },
+        ...exampleRoutes,
+        ...examplePages,
     ],
+    scrollBehavior() {
+        return { top: 0 };
+    },
 });
