@@ -137,12 +137,6 @@ defineExpose({
   width: 100%;
 }
 
-.search-form__inner :deep(.el-input__wrapper),
-
-.search-form__inner :deep(.el-input__wrapper.is-focus),
-.search-form__inner :deep(.el-range-editor.is-active) {
-  box-shadow: 0 0 0 1px var(--el-color-primary, #409eff) inset;
-}
 
 .search-form__inner :deep(.search-form-actions) {
   display: flex;
